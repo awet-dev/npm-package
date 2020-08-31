@@ -2,11 +2,16 @@
 // onclick display the source of js cheat sheet
 
 const userInput = document.querySelector("#first-name").value;
-if (userInput) {
+
    document.querySelector("#btn").addEventListener("click", ()=> {
-      alert(userInput);
-   })
-}
+      if (userInput) {
+         alert(`Hello ${userInput} how you doing today? \n what should I get you please?`);
+      } else {
+         alert("Enter your name please")
+      }
+
+   });
+
 (function() {
    // to get the value of an input: document.getElementById("element-id").value
    let v1 = parseFloat(document.getElementById("op-one").value);
@@ -32,7 +37,11 @@ if (userInput) {
 
    Array.from(document.querySelectorAll("button.operator")).forEach(function($btn) {
       $btn.addEventListener("click", function() {
-         performOperation($btn.id);
+         if (v1 && v2) {
+            performOperation($btn.id);
+         } else {
+            alert("Enter number and reload the page")
+         }
       });
    });
 })();
